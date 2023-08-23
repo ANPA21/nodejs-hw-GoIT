@@ -19,7 +19,7 @@ const userLogin = async (req, res) => {
 
   const token = generateToken(user.id);
   await User.findByIdAndUpdate(user.id, { token });
-  res.status(200).json(token);
+  res.status(200).json({ token, user: { email: user.email, subscription: user.subscription } });
 };
 
 module.exports = userLogin;
