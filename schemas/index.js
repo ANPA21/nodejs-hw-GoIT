@@ -1,5 +1,6 @@
 const addSchema = require("./addSchema");
 const contactMongoSchema = require("./contactMongoSchema");
+const resendVerificationSchema = require("./resendVerificationSchema");
 const updateFavoriteSchema = require("./updateFavoriteSchema");
 const userLoginSchema = require("./userLoginSchema");
 const userMongoSchema = require("./userMongoSchema");
@@ -14,4 +15,5 @@ module.exports = {
   userRegisterSchema,
   userLoginSchema,
   userSubscriptionSchema,
+  resendVerificationSchema,
 };

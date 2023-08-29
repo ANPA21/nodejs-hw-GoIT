@@ -28,6 +28,14 @@ const userMongoSchema = new Schema(
       type: String,
       required: true,
     },
+    verificationToken: {
+      type: String,
+      required: [true, "Verification token is required"],
+    },
+    verify: {
+      type: Boolean,
+      default: false,
+    },
   },
   { versionKey: false, timestamps: true }
 );

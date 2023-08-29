@@ -6,11 +6,12 @@ const bcrypt = require("bcryptjs");
 const userLogin = async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
-
   if (!user) {
     throw requestError(401, "Incorrect email or pasword");
   }
-
+  if (user.verify === false) {
+    throw requestError(401, "User not verified, please verify your account via email");
+  }
   const pwCompare = await bcrypt.compare(password, user.password);
 
   if (!pwCompare) {
